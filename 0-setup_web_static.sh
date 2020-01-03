@@ -3,7 +3,7 @@
 apt-get -y update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
-mkdir -p /data/web_static/releases/test /data/web_static_shared
+mkdir -p /data/web_static/releases/test /data/web_static/shared
 echo "I'm at MAGFest 2020" > /data/web_static/releases/test/index.html
 ln -sf /data/web_static/releases/test /data/web_static/current
 chown -R ubuntu:ubuntu /data
