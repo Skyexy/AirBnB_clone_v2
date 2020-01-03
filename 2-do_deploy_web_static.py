@@ -21,15 +21,16 @@ def do_deploy(archive_path):
     archive = archive_path.replace('.tgz', '')
     archive = archive.replace('versions/', '')
     run('mkdir -p /data/web_static/releases/{}/'.format(archive))
-    run('tar -xzf /tmp/{}.tgz -C /data/web_static/releases/{}/'.format(archive,
-                                                                      archive))
+    run('tar -xzf /tmp/{}.tgz -C /data/web_static/releases/{}/'
+        .format(archive, archive))
     run('rm /tmp/{}.tgz'.format(archive))
     run('mv /data/web_static/releases/{}/web_static/* '.format(archive) +
         '/data/web_static/releases/{}/'.format(archive))
-    run('rm -rf /data/web_static/current')
     run('rm -rf /data/web_static/releases/{}/web_static'.format(archive))
+    run('rm -rf /data/web_static/current')
     run('ln -s /data/web_static/releases/{}/ /data/web_static/current'
         .format(archive))
+    print('New version deployed!')
     return True
 
 
