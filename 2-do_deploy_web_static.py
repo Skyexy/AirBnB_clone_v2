@@ -13,6 +13,18 @@ env.user = 'ubuntu'
 env.hosts = ['35.196.121.183', '35.196.239.45']
 
 
+def do_pack():
+    """ Generate a .tgz archive from the contents of the web_static folder """
+    time = datetime.now()
+    name = 'web_static_' + str(time.year) + str(time.month) + str(time.day)
+    name = name + str(time.hour) + str(time.minute) + str(time.second) + '.tgz'
+    local('mkdir -p versions')
+    archive = local('tar -cvzf versions/{} web_static'.format(name))
+    if archive.failed:
+        return None
+    return 'versions/{}'.format(name)
+
+
 def do_deploy(archive_path):
     """ Distribute an archive to the web servers """
     if not isfile(archive_path):
@@ -32,15 +44,3 @@ def do_deploy(archive_path):
         .format(archive))
     print('New version deployed!')
     return True
-
-
-def do_pack():
-    """ Generate a .tgz archive from the contents of the web_static folder """
-    time = datetime.now()
-    name = 'web_static_' + str(time.year) + str(time.month) + str(time.day)
-    name = name + str(time.hour) + str(time.minute) + str(time.second) + '.tgz'
-    local('mkdir -p versions')
-    archive = local('tar -cvzf versions/{} web_static'.format(name))
-    if archive.failed:
-        return None
-    return archive
