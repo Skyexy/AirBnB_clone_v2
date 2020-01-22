@@ -36,7 +36,12 @@ class DBStorage():
         """Show all class objects in DBStorage or specified class if given
         """
         if cls:
-            objects = self.__session.query(cls).all()
+            try:
+                return {'{}.{}'.format(type(obj).__name__, obj.id): obj
+                        for obj in self.__session.query(eval(cls)).all()
+                        if eval(cls).__name__ == type(obj).__name__}
+            except:
+                return {}
         else:
             classes = [State, City, User, Place, Review, Amenity]
             objects = []
