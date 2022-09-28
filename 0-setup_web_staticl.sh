@@ -14,4 +14,4 @@ code =
 "
 echo $code > data/web_static/releases/test/index.html
 ln -sfn /data/web_static/releases/test/ /data/web_static/current
-sudo chown -R $USER:$USER /data/
+sudo chown -R $ubuntu:$ubuntu /data/
