@@ -8,10 +8,10 @@ exec { 'apt-get-update':
 -> exec {'c':
   command => '/usr/bin/env mkdir -p /data/web_static/releases/test /data/web_static/shared',
 }
--> exec {'e':
+-> exec {'d':
   command => '/usr/bin/env echo "Puppet x Holberton School" > /data/web_static/releases/test/index.html',
 }
--> exec {'g':
+-> exec {'e':
   command => '/usr/bin/env chown -R ubuntu:ubuntu /data',
 }
 -> exec {'f':
