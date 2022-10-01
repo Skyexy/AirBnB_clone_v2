@@ -10,7 +10,7 @@ from os.path import isfile
 from fabric.api import *
 
 env.user = 'ubuntu'
-env.hosts = ['3.237.48.129', '3.236.106.108']
+env.hosts = ['3.239.13.197', '3.235.77.17']
 
 
 def do_pack():
