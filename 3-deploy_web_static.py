@@ -10,7 +10,7 @@ from datetime import datetime
 from os.path import isfile
 
 env.user = 'ubuntu'
-env.hosts = ['35.196.121.183', '35.196.239.45']
+env.hosts = ['3.239.13.197', '3.235.77.17']
 
 
 def do_pack():
