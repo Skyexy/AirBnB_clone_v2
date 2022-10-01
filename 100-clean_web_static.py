@@ -67,5 +67,4 @@ def do_clean(number=0):
     for i in dir_server_names[n:]:
         if i is 'test':
             continue
-        run("rm -rf /data/web_static/releases/{}"
-            .format(i))
+        run("rm -rf /data/web_static/releases/{}".format(i))
