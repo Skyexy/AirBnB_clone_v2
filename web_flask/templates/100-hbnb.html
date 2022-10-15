@@ -1,78 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link rel="stylesheet" type="text/css" href="../static/styles/4-common.css">
-    <link rel="stylesheet" type="text/css" href="../static/styles/3-header.css">
-    <link rel="stylesheet" type="text/css" href="../static/styles/3-footer.css">
-    <link rel="stylesheet" type="text/css" href="../static/styles/6-filters.css">
-    <link type="text/css" rel="stylesheet" href="../static/styles/8-places.css">
-    <link rel="icon" href="../static/images/icon.png" />
-    <title>HBnB</title>
-  </head>
-  <body>
-    {% autoescape off %}
-    <header>
-      <div class="logo"></div>
-    </header>
-    <div class="container">
-      <section class="filters">
-	<div class="locations">
-	  <h3>States</h3>
-	  <h4>&nbsp;</h4>
-	  <div class="popover">
-            <UL>
-	      {% for state in states|sort(attribute='name') %}
-              <LI>
-		<h2>{{ state.name }}</h2>
-		<UL>
-		  {% for city in state.cities|sort(attribute='name') %}
-		  <LI>{{ city.name }}</LI>
-		  {% endfor %}
-		</UL>
-	      </LI>
-	      {% endfor %}
-            </UL>
-	  </div>
-	</div>
-	<div class="amenities">
-	  <h3>Amenities</h3>
-	  <h4>&nbsp;</h4>
-	  <div class="popover">
-	    <ul>
-	      {% for amenity in amenities|sort(attribute='name') %}
-	      <LI>{{ amenity.name }}</LI>
-	      {% endfor %}
-	    </ul>
-	  </div>
-	</div>
-	<button type="button">Search</button>
-      </section>
-      <section class="places">
-	<h1>Places</h1>
-	{% for place in places|sort(attribute='name') %}
-	<article>
-	  <div class="title_box">
-	    <h2>{{ place.name }}</h2>
-	    <div class="price_by_night">${{ place.price_by_night }}</div>
-	  </div>
-	  <div class="information">
-	    <div class="max_guest">{{ place.max_guest }} Guests</div>
-            <div class="number_rooms">{{ place.number_rooms}} Room</div>
-            <div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom</div>
-	  </div>
-	  <div class="user">
-            <b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}
-          </div>
-          <div class="description">
-	    {{ place.description }}
-          </div>
-	</article>
-	{% endfor %}
-      </section>
-    </div>
-    <footer>
-      <p>Holberton School</p>
-    </footer>
-  </body>
-  {% endautoescape %}
+<html>
+	<head>
+		<link rel="shortcut icon" type="image/x-icon" href="../webstatic/img/icon.png" />
+		<link rel="stylesheet" type="text/css" href="../static/styles/4-common.css">
+		<link rel="stylesheet" type="text/css" href="../static/styles/3-header.css">
+		<link rel="stylesheet" type="text/css" href="../static/styles/3-footer.css">
+		<link rel="stylesheet" type="text/css" href="../static/styles/6-filters.css">
+		<link type="text/css" rel="stylesheet" href="../static/styles/8-places.css">
+	</head>
+	<body>
+        <header>
+            <div class="logo"></div>
+        </header>
+        <div class="container">
+            <section class="filters">
+                <div class="locations">
+                    <h3>States</h3>
+                    <h4>abeukuta</h4>
+                    <ul class="popover">
+                        <h2>ogun</h2>
+                        <li>abeukuta</li>
+                        <li>osun</li>
+                        <h2>ogun</h2>
+                        <li>abeukuta</li>
+                        <li>osun</li>
+                    </ul>
+                </div>
+                <div class="amenities">
+                    <h3>Amenities</h3>
+                    <h4>social</h4>
+                    <ul class="popover">
+                        <li>television</li>
+                        <li>chair</li>
+                        <li>television</li>
+                        <li>chair</li>
+                        <li>television</li>
+                        <li>chair</li>
+                    </ul>
+                </div>
+                <button>
+                    Search
+                </button>
+            </section>
+            <section class="places">
+                <h1>Places</h1>
+                <article>
+                    <h2>
+                        MY HOME
+                    </h2>
+                    <div class="price_by_night">
+                            <p>$180</p>
+                    </div>
+                    <div class="information">
+                        <div class="max_guest">
+                            <div class="icon1">
+                            </div>
+                            <p>2 guests</p>
+                        </div>
+                        <div class="number_rooms">
+                            <div class="icon2">
+                            </div>
+                            <p>2 bedrooms</p>
+                        </div>
+                        <div class="number_bathrooms">
+                            <div class="icon3">
+                            </div>
+                            <p>1 bathroom</p>
+                        </div>
+                    </div>
+                    <div class="user">
+                        <p>
+                            <b>Owner</b>: oni progress
+                        </p>
+                    </div>
+                    <div class="description">
+                        <p>
+                            A DISCRIPTION IS VERY LAZY IN THEIS PARY OF THE WORLD SUP loop and you sup
+                            look on the kool sujjjd cent mezw sowqe vety gew zea bet u no sabi muss
+                        </p>
+                    </div>
+                </article>
+                <article>
+                    <h2>
+                        TINY HOUSE
+                    </h2>
+                    <div class="price_by_night">
+                            <p>$80</p>
+                    </div>
+                    <div class="information">
+                        <div class="max_guest">
+                            <div class="icon1">
+                            </div>
+                            <p>2 guests</p>
+                        </div>
+                        <div class="number_rooms">
+                            <div class="icon2">
+                            </div>
+                            <p>2 bedrooms</p>
+                        </div>
+                        <div class="number_bathrooms">
+                            <div class="icon3">
+                            </div>
+                            <p>1 bathroom</p>
+                        </div>
+                    </div>
+                    <div class="user">
+                        <p>
+                            <b>Owner</b>: oni progress
+                        </p>
+                    </div>
+                    <div class="description">
+                        <p>
+                            A DISCRIPTION IS VERY LAZY IN THEIS PARY OF THE WORLD SUP loop and you sup
+                            look on the kool sujjjd cent mezw sowqe vety gew zea bet u no sabi muss
+                        </p>
+                    </div>
+                </article>
+                <article>
+                    <h2>
+                        A SUITE
+                    </h2>
+                    <div class="price_by_night">
+                            <p>$80</p>
+                    </div>
+                    <div class="information">
+                        <div class="max_guest">
+                            <div class="icon1">
+                            </div>
+                            <p>2 guests</p>
+                        </div>
+                        <div class="number_rooms">
+                            <div class="icon2">
+                            </div>
+                            <p>2 bedrooms</p>
+                        </div>
+                        <div class="number_bathrooms">
+                            <div class="icon3">
+                            </div>
+                            <p>1 bathroom</p>
+                        </div>
+                    </div>
+                    <div class="user">
+                        <p>
+                            <b>Owner</b>: oni progress
+                        </p>
+                    </div>
+                    <div class="description">
+                        <p>
+                            A DISCRIPTION IS VERY LAZY IN THEIS PARY OF THE WORLD SUP loop and you sup
+                            look on the kool sujjjd cent mezw sowqe vety gew zea bet u no sabi muss
+                        </p>
+                    </div>
+                </article>
+            </section>
+        </div>
+        <footer>
+            <p>Best School</p>
+        </footer>
+	</body>
 </html>
