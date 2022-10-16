@@ -9,6 +9,7 @@
 		<link type="text/css" rel="stylesheet" href="../static/styles/8-places.css">
 	</head>
 	<body>
+		{% autoescape off %}
 		<header>
 			<div class="logo"></div>
 		</header>
@@ -72,94 +73,23 @@
 							<p>{{ place.number_bathrooms }} Bathroom</p>
 						</div>
 					</div>
-                    <div class="user">
-                        <p>
-                            <b>Owner</b>: oni progress
-                        </p>
-                    </div>
-                    <div class="description">
-                        <p>
-                            A DISCRIPTION IS VERY LAZY IN THEIS PARY OF THE WORLD SUP loop and you sup
-                            look on the kool sujjjd cent mezw sowqe vety gew zea bet u no sabi muss
-                        </p>
-                    </div>
-                </article>
-                <article>
-                    <h2>
-                        TINY HOUSE
-                    </h2>
-                    <div class="price_by_night">
-                            <p>$80</p>
-                    </div>
-                    <div class="information">
-                        <div class="max_guest">
-                            <div class="icon1">
-                            </div>
-                            <p>2 guests</p>
-                        </div>
-                        <div class="number_rooms">
-                            <div class="icon2">
-                            </div>
-                            <p>2 bedrooms</p>
-                        </div>
-                        <div class="number_bathrooms">
-                            <div class="icon3">
-                            </div>
-                            <p>1 bathroom</p>
-                        </div>
-                    </div>
-                    <div class="user">
-                        <p>
-                            <b>Owner</b>: oni progress
-                        </p>
-                    </div>
-                    <div class="description">
-                        <p>
-                            A DISCRIPTION IS VERY LAZY IN THEIS PARY OF THE WORLD SUP loop and you sup
-                            look on the kool sujjjd cent mezw sowqe vety gew zea bet u no sabi muss
-                        </p>
-                    </div>
-                </article>
-                <article>
-                    <h2>
-                        A SUITE
-                    </h2>
-                    <div class="price_by_night">
-                            <p>$80</p>
-                    </div>
-                    <div class="information">
-                        <div class="max_guest">
-                            <div class="icon1">
-                            </div>
-                            <p>2 guests</p>
-                        </div>
-                        <div class="number_rooms">
-                            <div class="icon2">
-                            </div>
-                            <p>2 bedrooms</p>
-                        </div>
-                        <div class="number_bathrooms">
-                            <div class="icon3">
-                            </div>
-                            <p>1 bathroom</p>
-                        </div>
-                    </div>
-                    <div class="user">
-                        <p>
-                            <b>Owner</b>: oni progress
-                        </p>
-                    </div>
-                    <div class="description">
-                        <p>
-                            A DISCRIPTION IS VERY LAZY IN THEIS PARY OF THE WORLD SUP loop and you sup
-                            look on the kool sujjjd cent mezw sowqe vety gew zea bet u no sabi muss
-                        </p>
-                    </div>
-                </article>
-            </section>
-        </div>
-        <footer>
-            <p>Best School</p>
-        </footer>
+					<div class="user">
+						<p>
+							<b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}
+						</p>
+					</div>
+					<div class="description">
+						<p>
+							{{ place.description }}
+						</p>
+					</div>
+				</article>
+				{% endfor %}
+			</section>
+		</div>
+		<footer>
+			<p>Best School</p>
+		</footer>
 	</body>
+	{% endautoescape %}
 </html>
