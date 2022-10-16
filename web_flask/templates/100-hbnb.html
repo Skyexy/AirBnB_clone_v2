@@ -9,65 +9,69 @@
 		<link type="text/css" rel="stylesheet" href="../static/styles/8-places.css">
 	</head>
 	<body>
-        <header>
-            <div class="logo"></div>
-        </header>
-        <div class="container">
-            <section class="filters">
-                <div class="locations">
-                    <h3>States</h3>
-                    <h4>abeukuta</h4>
-                    <ul class="popover">
-                        <h2>ogun</h2>
-                        <li>abeukuta</li>
-                        <li>osun</li>
-                        <h2>ogun</h2>
-                        <li>abeukuta</li>
-                        <li>osun</li>
-                    </ul>
-                </div>
-                <div class="amenities">
-                    <h3>Amenities</h3>
-                    <h4>social</h4>
-                    <ul class="popover">
-                        <li>television</li>
-                        <li>chair</li>
-                        <li>television</li>
-                        <li>chair</li>
-                        <li>television</li>
-                        <li>chair</li>
-                    </ul>
-                </div>
-                <button>
-                    Search
-                </button>
-            </section>
-            <section class="places">
-                <h1>Places</h1>
-                <article>
-                    <h2>
-                        MY HOME
-                    </h2>
-                    <div class="price_by_night">
-                            <p>$180</p>
-                    </div>
-                    <div class="information">
-                        <div class="max_guest">
-                            <div class="icon1">
-                            </div>
-                            <p>2 guests</p>
-                        </div>
-                        <div class="number_rooms">
-                            <div class="icon2">
-                            </div>
-                            <p>2 bedrooms</p>
-                        </div>
-                        <div class="number_bathrooms">
-                            <div class="icon3">
-                            </div>
-                            <p>1 bathroom</p>
-                        </div>
-                    </div>
+		<header>
+			<div class="logo"></div>
+		</header>
+		<div class="container">
+			<section class="filters">
+				<div class="locations">
+					<h3>States</h3>
+					<h4>&nbsp;</h4>
+					<div class="popover">
+						<UL>
+							{% for state in states|sort(attribute='name') %}
+							<LI>
+								<h2>{{ state.name }}</h2>
+								<UL>
+									{% for city in state.cities|sort(attribute='name') %}
+									<LI>{{ city.name }}</LI>
+									{% endfor %}
+								</UL>
+							</LI>
+							{% endfor %}
+						</UL>
+					</div>
+				</div>
+				<div class="amenities">
+					<h3>Amenities</h3>
+					<h4>&nbsp;</h4>
+					<div class="popover">
+						<ul>
+							{% for amenity in amenities|sort(attribute='name') %}
+							<LI>{{ amenity.name }}</LI>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+				<button type="button">Search</button>
+			</section>
+			<section class="places">
+				<h1>Places</h1>
+				{% for place in places|sort(attribute='name') %}
+				<article>
+					<h2>
+						{{ place.name }}
+					</h2>
+					<div class="price_by_night">
+						<p>{{ place. price_by_night }}</p>
+					</div>
+					<div class="information">
+						<div class="max_guest">
+							<div class="icon1">
+							</div>
+							<p>{{ place.max_guest }} Guests</p>
+						</div>
+						<div class="number_rooms">
+							<div class="icon2">
+							</div>
+							<p>{{ place.number_rooms }} Bedrooms</p>
+						</div>
+						<div class="number_bathrooms">
+							<div class="icon3">
+							</div>
+							<p>{{ place.number_bathrooms }} Bathroom</p>
+						</div>
+					</div>
                     <div class="user">
                         <p>
                             <b>Owner</b>: oni progress
